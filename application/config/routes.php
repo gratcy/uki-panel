@@ -71,3 +71,13 @@ $route['categories'] = 'categories/home';
 $route['categories/add'] = 'categories/home/add';
 $route['categories/edit/?(:num)?'] = 'categories/home/edit/$1';
 $route['categories/remove/(:num)'] = 'categories/home/remove/$1';
+
+$route['users'] = 'users/home';
+$route['users/add'] = 'users/home/add';
+$route['users/edit/?(:num)?'] = 'users/home/edit/$1';
+$route['users/remove/(:num)'] = 'users/home/remove/$1';
+
+$route['users_groups'] = 'users_groups/home';
+$route['users_groups/add'] = 'users_groups/home/add';
+$route['users_groups/edit/?(:num)?'] = 'users_groups/home/edit/$1';
+$route['users_groups/remove/(:num)'] = 'users_groups/home/remove/$1';

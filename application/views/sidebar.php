@@ -20,11 +20,11 @@
                         </li>
                         </li>
                         <li class="nav-label">Users</li>
-                        <li> <a class="has-arrow  " href="#" aria-expanded="false"><i class="fa fa-users"></i><span class="hide-menu">Users <span class="label label-rouded label-warning pull-right">3</span></span></a>
+                        <li> <a class="has-arrow  " href="<?php echo site_url('users'); ?>" aria-expanded="false"><i class="fa fa-users"></i><span class="hide-menu">Users <span class="label label-rouded label-warning pull-right">3</span></span></a>
                             <ul aria-expanded="false" class="collapse">
-                                <li><a href="ui-alert.html">All Users</a></li>
-                                <li><a href="ui-button.html">Add New</a></li>
-                                <li><a href="ui-dropdown.html">Group</a></li>
+                                <li><a href="<?php echo site_url('users'); ?>">All Users</a></li>
+                                <li><a href="<?php echo site_url('users/add'); ?>">Add New</a></li>
+                                <li><a href="<?php echo site_url('users_groups'); ?>">Group</a></li>
                             </ul>
                         </li>
                         <li class="nav-label">EXTRA</li>
