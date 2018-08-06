@@ -225,10 +225,7 @@
                             <a class="nav-link dropdown-toggle text-muted  " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="<?php echo site_url('assets'); ?>/images/users/5.jpg" alt="user" class="profile-pic" /></a>
                             <div class="dropdown-menu dropdown-menu-right animated zoomIn">
                                 <ul class="dropdown-user">
-                                    <li><a href="#"><i class="ti-user"></i> Profile</a></li>
-                                    <li><a href="#"><i class="ti-wallet"></i> Balance</a></li>
-                                    <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
-                                    <li><a href="#"><i class="ti-settings"></i> Setting</a></li>
+                                    <li><a href="<?php echo site_url('settings'); ?>"><i class="ti-settings"></i> Setting</a></li>
                                     <li><a href="<?php echo site_url('login/logout'); ?>" onclick="return confirm('<?php echo $this -> permission_lib -> sesresult['uemail']; ?>, are you sure you want to logout?');"><i class="fa fa-power-off"></i> Logout</a></li>
                                 </ul>
                             </div>
