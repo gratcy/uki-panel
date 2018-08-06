@@ -1,25 +1,18 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Home extends CI_Controller {
+class Home extends MX_Controller {
+	function __construct() {
+		parent::__construct();
+		$this -> load -> model('Home_model');
+	}
 
-	/**
-	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
-	 * 		http://example.com/index.php/welcome
-	 *	- or -
-	 * 		http://example.com/index.php/welcome/index
-	 *	- or -
-	 * Since this controller is set as the default controller in
-	 * config/routes.php, it's displayed at http://example.com/
-	 *
-	 * So any other public methods not prefixed with an underscore will
-	 * map to /index.php/welcome/<method_name>
-	 * @see https://codeigniter.com/user_guide/general/urls.html
-	 */
 	public function index()
 	{
-		$this->load->view('index', array());
+		$data['total_pages'] = $this -> Home_model -> __get_stats(1);
+		$data['total_posts'] = $this -> Home_model -> __get_stats(2);
+		$data['total_categories'] = $this -> Home_model -> __get_stats(3);
+		$data['total_users'] = $this -> Home_model -> __get_stats(4);
+		$this->load->view('index', $data);
 	}
 }

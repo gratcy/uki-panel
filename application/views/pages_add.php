@@ -23,20 +23,27 @@
                             </div>
                             <div class="card-body">
                                 <div class="basic-form">
+                                <?php echo __get_error_msg(); ?>
                                     <form action="<?php echo site_url('pages/add'); ?>" method="post">
                                         <div class="form-group">
-                                            <label>Title</label>
-                                            <input type="text" name="title" class="form-control input-default " placeholder="Input Default">
-                                        </div>
-                                        <div class="form-group">
                                             <label>Faculty</label>
-                                            <select name="faculty" class="form-control input-flat" placeholder="Input Flat ">
+                                            <select name="faculty" class="form-control input-flat">
                                                 <?php echo __get_faculity('',2); ?>
                                             </select>
                                         </div>
                                         <div class="form-group">
+                                            <label>Parent</label>
+                                            <select name="pparent" class="form-control input-flat">
+                                                <?php echo $pages; ?>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Title</label>
+                                            <input type="text" name="title" class="form-control input-default " placeholder="Input Title">
+                                        </div>
+                                        <div class="form-group">
                                             <label>Content</label>
-                                        <textarea class="textarea_editor form-control" rows="15" placeholder="Enter text ..." name="content" style="height:450px"></textarea>
+                                        <textarea class="textarea_editor form-control" rows="15" placeholder="Enter content ..." name="content" style="height:450px"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>Status</label>

@@ -102,7 +102,7 @@ function __set_modification_log($data, $type, $ttype) {
 	}
 	else {
 	    $CI =& get_instance();
-		return json_encode(json_encode(array('user' => $CI -> permission_lib -> sesresult['uemail'], 'date' => date('Y-m-d H:i:s'))));
+		return json_encode(array('user' => $CI -> permission_lib -> sesresult['uemail'], 'date' => date('Y-m-d H:i:s')));
 	}
 }
 

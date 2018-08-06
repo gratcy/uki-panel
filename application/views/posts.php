@@ -25,6 +25,7 @@
                                     <a href="<?php echo site_url('posts/add'); ?>" class="btn btn-primary"><i class="icon-plus"></i> Add New</a>
                                 </div>
                                 <div class="table-responsive m-t-40">
+                                <?php echo __get_error_msg(); ?>
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>

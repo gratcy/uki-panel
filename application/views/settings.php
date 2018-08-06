@@ -23,10 +23,12 @@
                             </div>
                             <div class="card-body">
                                 <div class="basic-form">
+                                <?php echo __get_error_msg(); ?>
                                     <form action="<?php echo site_url('settings'); ?>" method="post">
+                                        <input type="hidden" value="<?php echo $this -> permission_lib -> sesresult['uid']; ?>" name="uid">
                                         <div class="form-group">
                                             <label>Email</label>
-                                            <input type="text" name="email" class="form-control input-default " placeholder="Email" value="<?php echo $this -> permission_lib -> sesresult['uemail']; ?>">
+                                            <input type="text" name="uemail" class="form-control input-default " placeholder="Email" value="<?php echo $this -> permission_lib -> sesresult['uemail']; ?>">
                                         </div>
                                         <div class="form-group">
                                             <label>Old Password</label>

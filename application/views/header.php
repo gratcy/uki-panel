@@ -21,6 +21,7 @@
     <link href="<?php echo site_url('assets'); ?>/css/helper.css" rel="stylesheet">
     <link href="<?php echo site_url('assets'); ?>/css/style.css" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo site_url('assets'); ?>/css/lib/html5-editor/bootstrap-wysihtml5.css" />
+    <link href="<?php echo site_url('assets'); ?>/css/lib/dropzone/dropzone.css" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:** -->
     <!--[if lt IE 9]>

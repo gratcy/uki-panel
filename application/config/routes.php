@@ -81,3 +81,6 @@ $route['users_groups'] = 'users_groups/home';
 $route['users_groups/add'] = 'users_groups/home/add';
 $route['users_groups/edit/?(:num)?'] = 'users_groups/home/edit/$1';
 $route['users_groups/remove/(:num)'] = 'users_groups/home/remove/$1';
+
+$route['media'] = 'media/home';
+$route['media/add'] = 'media/home/add';

@@ -3,11 +3,11 @@
             <!-- Bread crumb -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-primary">Categories</h3> </div>
+                    <h3 class="text-primary">Users Groups</h3> </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item active">Categories</li>
+                        <li class="breadcrumb-item active">Users Groups</li>
                     </ol>
                 </div>
             </div>
@@ -19,37 +19,25 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-title">
-                                <h4>Edit Categories</h4>
+                                <h4>Edit Users Groups</h4>
                             </div>
-                            <h6 class="card-subtitle">Updated By <?php echo __set_modification_log($data[0] -> cupdatedby, 1, 1);?> | Updated Date <?php echo __set_modification_log($data[0] -> cupdatedby, 2, 1);?></h6>
+                            <h6 class="card-subtitle">Updated By <?php echo __set_modification_log($data[0] -> gupdatedby, 1, 1);?> | Updated Date <?php echo __set_modification_log($data[0] -> gupdatedby, 2, 1);?></h6>
                             <div class="card-body">
                                 <div class="basic-form">
+                                    <form action="<?php echo site_url('users_groups/edit'); ?>" method="post">
                                 <?php echo __get_error_msg(); ?>
-                                    <form action="<?php echo site_url('categories/edit'); ?>" method="post">
                                         <input type="hidden" name="id" value="<?php echo $id; ?>">
                                         <div class="form-group">
-                                            <label>Parent</label>
-                                            <select name="cparent" class="form-control input-flat">
-                                                <?php echo $cparent; ?>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
                                             <label>Name</label>
-                                            <input type="text" name="title" class="form-control input-default " placeholder="Input Default" value="<?php echo $data[0] -> cname; ?>">
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Faculty</label>
-                                            <select name="faculty" class="form-control input-flat" placeholder="Input Flat ">
-                                                <?php echo __get_faculity($data[0] -> cfaculty,2); ?>
-                                            </select>
+                                            <input type="text" name="name" class="form-control input-default " placeholder="Input Group Name" value="<?php echo $data[0] -> gname; ?>">
                                         </div>
                                         <div class="form-group">
                                             <label>Description</label>
-                                        <textarea class="form-control" rows="3" placeholder="Enter text ..." name="desc" style="height:100px"><?php echo $data[0] -> cdesc; ?></textarea>
+                                        <textarea class="form-control" rows="3" placeholder="Enter description ..." name="desc" style="height:100px"><?php echo $data[0] -> gdesc; ?></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>Status</label>
-                                            <?php echo __get_status($data[0] -> cstatus,4); ?>
+                                            <?php echo __get_status($data[0] -> gstatus,4); ?>
                                         </div>
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-info">Submit <i class="fa fa-save"></i></button>

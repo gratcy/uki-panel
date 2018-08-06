@@ -25,6 +25,7 @@
 
                             <div class="card-body">
                                 <div class="basic-form">
+                                <?php echo __get_error_msg(); ?>
                                     <form action="<?php echo site_url('posts/edit'); ?>" method="post">
                                         <input type="hidden" name="id" value="<?php echo $id; ?>">
                                         <div class="form-group">

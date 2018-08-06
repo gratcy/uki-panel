@@ -23,6 +23,7 @@
                             </div>
                             <div class="card-body">
                                 <div class="basic-form">
+                                <?php echo __get_error_msg(); ?>
                                     <form action="<?php echo site_url('posts/add'); ?>" method="post">
                                         <div class="form-group">
                                             <label>Faculty</label>

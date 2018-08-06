@@ -23,7 +23,14 @@
                             </div>
                             <div class="card-body">
                                 <div class="basic-form">
+                                <?php echo __get_error_msg(); ?>
                                     <form action="<?php echo site_url('categories/add'); ?>" method="post">
+                                        <div class="form-group">
+                                            <label>Parent</label>
+                                            <select name="cparent" class="form-control input-flat">
+                                                <?php echo $cparent; ?>
+                                            </select>
+                                        </div>
                                         <div class="form-group">
                                             <label>Name</label>
                                             <input type="text" name="title" class="form-control input-default " placeholder="Input Default">
@@ -36,7 +43,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Description</label>
-                                        <textarea class="form-control" rows="3" placeholder="Enter text ..." name="content" style="height:100px"></textarea>
+                                        <textarea class="form-control" rows="3" placeholder="Enter text ..." name="desc" style="height:100px"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>Status</label>

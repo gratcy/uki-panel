@@ -19,6 +19,7 @@
                             </ul>
                         </li>
                         </li>
+                        <li> <a href="<?php echo site_url('media'); ?>"><i class="fa fa-image"></i><span class="hide-menu">Media </span></a>
                         <li class="nav-label">Users</li>
                         <li> <a class="has-arrow  " href="<?php echo site_url('users'); ?>" aria-expanded="false"><i class="fa fa-users"></i><span class="hide-menu">Users <span class="label label-rouded label-warning pull-right">3</span></span></a>
                             <ul aria-expanded="false" class="collapse">
