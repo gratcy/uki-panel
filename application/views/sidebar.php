@@ -20,7 +20,7 @@
                         </li>
                         </li>
                         <li> <a href="<?php echo site_url('media'); ?>"><i class="fa fa-file-photo-o"></i><span class="hide-menu">Media </span></a></li>
-                        <li> <a class="has-arrow  " href="<?php echo site_url('gallery'); ?>" aria-expanded="false"><i class="fa fa-file-photo-o"></i><span class="hide-menu">Gallery <span class="label label-rouded label-primary pull-right">3</span></span></a>
+                        <li> <a class="has-arrow  " href="<?php echo site_url('gallery'); ?>" aria-expanded="false"><i class="fa fa-camera-retro"></i><span class="hide-menu">Gallery <span class="label label-rouded label-primary pull-right">3</span></span></a>
                             <ul aria-expanded="false" class="collapse">
                                 <li><a href="<?php echo site_url('gallery'); ?>">Gallery</a></li>
                                 <li><a href="<?php echo site_url('gallery/add'); ?>">Add New</a></li>
