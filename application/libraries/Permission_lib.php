@@ -11,8 +11,10 @@ class Permission_lib {
 	function __construct() {
 		$this -> _ci =& get_instance();
 		if ($this -> _ci -> cache -> memcached -> get('__login')) {
-			$this -> login = true;
-			$this -> sesresult = $this -> _ci -> cache -> memcached -> get('__login');
+			if ($this -> _ci -> cache -> memcached -> get('__login')['uid']) {
+				$this -> login = true;
+				$this -> sesresult = $this -> _ci -> cache -> memcached -> get('__login');
+			}
 		}
 
 		self::__check_login();
@@ -24,12 +26,14 @@ class Permission_lib {
 	}
 	
 	function __check_login() {
-		if ($this -> _ci -> uri -> segment(1) !== 'login') {
-			if (!$this -> login) redirect(site_url('login'));
-		}
-		else {
-			if ($this -> _ci -> uri -> segment(2) !== 'logout') {
-				if ($this -> login) redirect(site_url(''));
+		if ($this -> _ci -> uri -> segment(1) !== 'switchfaculty') {
+			if ($this -> _ci -> uri -> segment(1) !== 'login') {
+				if (!$this -> login) redirect(site_url('login'));
+			}
+			else {
+				if ($this -> _ci -> uri -> segment(2) !== 'logout') {
+					if ($this -> login) redirect(site_url(''));
+				}
 			}
 		}
 	}

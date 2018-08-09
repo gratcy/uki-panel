@@ -15,4 +15,16 @@ class Home extends MX_Controller {
 		$data['total_users'] = $this -> Home_model -> __get_stats(4);
 		$this->load->view('index', $data);
 	}
+
+	function switchfaculty($id) {
+		if ($this -> permission_lib -> sesresult['uid'] == 6 || $this -> permission_lib -> sesresult['uid'] == 13 || $this -> permission_lib -> sesresult['uid'] == 23 || $this -> permission_lib -> sesresult['uid'] == 1) {
+			$login = $this -> cache -> memcached -> get('__login');
+			$login['ufaculty'] = $id;
+			$this -> cache -> memcached -> delete('__login');
+			$this -> cache -> memcached -> save('__login', $login, time()+60*60*24*100);
+			redirect($_SERVER['HTTP_REFERER']);
+		}
+		else
+			redirect(site_url());
+	}
 }

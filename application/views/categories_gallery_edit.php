@@ -37,7 +37,7 @@
                                             <label>Name</label>
                                             <input type="text" name="title" class="form-control input-default " placeholder="Input Default" value="<?php echo $data[0] -> cname; ?>">
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group hide">
                                             <label>Faculty</label>
                                             <select name="faculty" class="form-control input-flat" placeholder="Input Flat ">
                                                 <?php echo __get_faculity($data[0] -> cfaculty,2); ?>

@@ -53,6 +53,7 @@ $route['default_controller'] = 'home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+$route['switchfaculty/(:num)'] = 'home/home/switchfaculty/$1';
 $route['login'] = 'login/home';
 $route['login/logging'] = 'login/home/logging';
 $route['login/logout'] = 'login/home/logout';

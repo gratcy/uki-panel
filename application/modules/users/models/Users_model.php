@@ -23,4 +23,9 @@ class Users_model extends CI_Model {
         $this -> db -> where('uid', $id);
         return $this -> db -> update('users_tab', $data);
 	}
+	
+	function __check_user($email) {
+		$this -> db -> select("uemail FROM users_tab WHERE uemail='".$email."' AND (ustatus=1 or ustatus=0)");
+		return $this -> db -> get() -> num_rows();
+	}
 }

@@ -30,6 +30,18 @@ class Home extends MX_Controller {
 				__set_error_msg(array('error' => 'Data yang anda masukkan tidak lengkap !!!'));
 				redirect(site_url('users/add'));
 			}
+			else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+				__set_error_msg(array('error' => 'Penulisan email salah !!!'));
+				redirect(site_url('users/add'));
+			}
+			else if ($this -> Users_model -> __check_user($email) > 0) {
+				__set_error_msg(array('error' => 'Email sudah terdaftar !!!'));
+				redirect(site_url('users/add'));
+			}
+			else if (strlen($newpass) < 6) {
+				__set_error_msg(array('error' => 'Password minimal 6 karakter !!!'));
+				redirect(site_url('users/add'));
+			}
 			else {
 				if ($newpass !== $confpass) {
 					__set_error_msg(array('error' => 'Password dan Konfirmasi Password tidak sesuai !!!'));

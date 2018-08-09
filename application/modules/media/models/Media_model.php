@@ -5,8 +5,8 @@ class Media_model extends CI_Model {
         $this->load->database();
     }
     
-    function __get_media() {
-		$this -> db -> select("* FROM media_tab WHERE mstatus=1", FALSE);
+    function __get_media($faculty) {
+		$this -> db -> select('* FROM media_tab WHERE mstatus=1 AND mfaculty=' . $faculty, FALSE);
 		return $this -> db -> get() -> result();
 	}
 	

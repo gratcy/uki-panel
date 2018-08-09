@@ -35,10 +35,10 @@
                                             <label>Name</label>
                                             <input type="text" name="title" class="form-control input-default " placeholder="Input Default">
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group hide">
                                             <label>Faculty</label>
                                             <select name="faculty" class="form-control input-flat" placeholder="Input Flat ">
-                                                <?php echo __get_faculity('',2); ?>
+                                                <?php echo __get_faculity($this -> permission_lib -> sesresult['ufaculty'],2); ?>
                                             </select>
                                         </div>
                                         <div class="form-group">

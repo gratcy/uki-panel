@@ -29,6 +29,7 @@
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
+                                                <th>Parent</th>
                                                 <th>Faculty</th>
                                                 <th>Title</th>
                                                 <th>Created Date</th>
@@ -40,6 +41,7 @@
                                         <tbody>
                                             <?php foreach($data as $k => $v) : ?>
                                                 <tr>
+                                                    <td><?php echo $v -> pparent == 0 ? 'Main' : $v -> pname;?></td>
                                                     <td><?php echo __get_faculity($v -> pfaculty, 1);?></td>
                                                     <td><?php echo $v -> ptitle;?></td>
                                                     <td><?php echo __set_modification_log($v -> pcreatedby, 2, 1);?></td>

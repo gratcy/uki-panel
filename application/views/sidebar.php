@@ -4,6 +4,15 @@
             <div class="scroll-sidebar">
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
+        <?php
+        if ($this -> permission_lib -> sesresult['uid'] == 6 || $this -> permission_lib -> sesresult['uid'] == 13 || $this -> permission_lib -> sesresult['uid'] == 23 || $this -> permission_lib -> sesresult['uid'] == 1) {
+            ?>
+                    <div style="padding: 10px;">
+                    <select name="switchfaculty" class="form-control input-flat">
+                        <?php echo __get_faculity($this -> permission_lib -> sesresult['ufaculty'],2); ?>
+                    </select>
+                    </div>
+                    <?php } ?>
                     <ul id="sidebarnav">
                         <li class="nav-devider"></li>
                         <li class="nav-label">Home</li>

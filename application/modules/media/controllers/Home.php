@@ -9,7 +9,7 @@ class Home extends MX_Controller {
 
 	public function index()
 	{
-		$data['data'] = $this -> Media_model -> __get_media(1, 0);
+		$data['data'] = $this -> Media_model -> __get_media(1, 0, $this -> permission_lib -> sesresult['ufaculty']);
 		$this->load->view('media', $data);
 	}
 

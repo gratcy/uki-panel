@@ -9,8 +9,8 @@ class Categories_gallery_lib {
         $this->_ci->load->model('categories_gallery/Categories_gallery_model');
     }
     
-    function __get_categories($id='') {
-		$users = $this -> _ci -> Categories_gallery_model -> __get_categories_select(1, 0);
+    function __get_categories($id='', $faculty) {
+		$users = $this -> _ci -> Categories_gallery_model -> __get_categories_select(1, 0, $faculty);
 
 		$res = '<option value=""></option>';
 		foreach($users as $k => $v) :
@@ -19,7 +19,7 @@ class Categories_gallery_lib {
 			else
 				$res .= '<option value="'.$v -> cid.'">'.$v -> cname.'</option>';
 	
-			$usersChild = $this -> _ci -> Categories_gallery_model -> __get_categories_select(2, $v -> cid);
+			$usersChild = $this -> _ci -> Categories_gallery_model -> __get_categories_select(2, $v -> cid, $faculty);
 			foreach($usersChild as $k1 => $v1) :
 				if ($id == $v1 -> cid)
 					$res .= '<option value="'.$v1 -> cid.'" selected>-- '.$v1 -> cname.'</option>';
@@ -31,8 +31,8 @@ class Categories_gallery_lib {
 		return $res;
 	}
     
-    function __get_categories_level($id='') {
-		$users = $this -> _ci -> Categories_gallery_model -> __get_categories_select(1, 0);
+    function __get_categories_level($id='', $faculty) {
+		$users = $this -> _ci -> Categories_gallery_model -> __get_categories_select(1, 0, $faculty);
 
 		$res = '<option value="0">Main</option>';
 		foreach($users as $k => $v) :
@@ -41,12 +41,12 @@ class Categories_gallery_lib {
 			else
 				$res .= '<option value="'.$v -> cid.'">'.$v -> cname.'</option>';
 	
-			$usersChild = $this -> _ci -> Categories_gallery_model -> __get_categories_select(2, $v -> cid);
+			$usersChild = $this -> _ci -> Categories_gallery_model -> __get_categories_select(2, $v -> cid, $faculty);
 			foreach($usersChild as $k1 => $v1) :
 				if ($id == $v1 -> cid)
-					$res .= '<option value="'.$v -> cid.'" selected>-- '.$v1 -> cname.'</option>';
+					$res .= '<option value="'.$v1 -> cid.'" selected>-- '.$v1 -> cname.'</option>';
 				else
-					$res .= '<option value="'.$v -> cid.'">-- '.$v1 -> cname.'</option>';
+					$res .= '<option value="'.$v1 -> cid.'">-- '.$v1 -> cname.'</option>';
 			endforeach;
 		endforeach;
 

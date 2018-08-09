@@ -30,6 +30,7 @@
                                         <thead>
                                             <tr>
                                                 <th>Faculty</th>
+                                                <th>Parent</th>
                                                 <th>Name</th>
                                                 <th>Created Date</th>
                                                 <th>Created By</th>
@@ -41,6 +42,7 @@
                                             <?php foreach($data as $k => $v) : ?>
                                                 <tr>
                                                     <td><?php echo __get_faculity($v -> cfaculty, 1);?></td>
+                                                    <td><?php echo $v -> cparent == 0 ? 'Main' : $v -> cparentname;?></td>
                                                     <td><?php echo $v -> cname;?></td>
                                                     <td><?php echo __set_modification_log($v -> ccreatedby, 2, 1);?></td>
                                                     <td><?php echo __set_modification_log($v -> ccreatedby, 1, 1);?></td>
@@ -51,23 +53,6 @@
                                                           <a href="<?php echo site_url('categories_gallery/remove/' . $v -> cid); ?>" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-remove"></i></a>
                                                       </td>
                                                 </tr>
-                                            <?php
-                                            $dataChild = $this -> Categories_gallery_model -> __get_categories(2, $v -> cid);
-                                            foreach($dataChild as $k => $v1) :
-                                            ?>
-                                                <tr>
-                                                    <td>--<?php echo __get_faculity($v1 -> cfaculty, 1);?></td>
-                                                    <td><?php echo $v1 -> cname;?></td>
-                                                    <td><?php echo __set_modification_log($v1 -> ccreatedby, 2, 1);?></td>
-                                                    <td><?php echo __set_modification_log($v1 -> ccreatedby, 1, 1);?></td>
-                                                    <td><?php echo __get_status($v1 -> cstatus,1);?></td>
-                                                      <td>
-                                                          <a href="<?php echo site_url('categories_gallery/edit/' . $v1 -> cid); ?>"><i class="fa fa-pencil"></i></a>
-                                                          &nbsp;
-                                                          <a href="<?php echo site_url('categories_gallery/remove/' . $v1 -> cid); ?>" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-remove"></i></a>
-                                                      </td>
-                                                </tr>
-                                            <?php endforeach; ?>
                                             <?php endforeach; ?>
                                         </tbody>
                                     </table>

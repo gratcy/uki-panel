@@ -26,6 +26,10 @@ class Home extends MX_Controller {
 							__set_error_msg(array('error' => 'Password dan password konfirmasi tidak sesuai !!!'));
 							redirect(site_url('settings'));
 						}
+						else if (strlen($newpass) < 6) {
+							__set_error_msg(array('error' => 'Minimal password 6 karakter !!!'));
+							redirect(site_url('settings'));
+						}
 						else {
 							$r = $this -> Settings_model -> __check_password($uid);
 							if (md5(sha1($oldpass, true)) != $r[0] -> upass)	{

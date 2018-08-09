@@ -25,10 +25,10 @@
                                 <div class="basic-form">
                                 <?php echo __get_error_msg(); ?>
                                     <form action="<?php echo site_url('gallery/add'); ?>" method="post" enctype="multipart/form-data">
-                                        <div class="form-group">
+                                        <div class="form-group hide">
                                             <label>Faculty</label>
                                             <select name="faculty" class="form-control input-flat" placeholder="Input Flat ">
-                                                <?php echo __get_faculity('',2); ?>
+                                                <?php echo __get_faculity($this -> permission_lib -> sesresult['ufaculty'],2); ?>
                                             </select>
                                         </div>
                                         <div class="form-group">

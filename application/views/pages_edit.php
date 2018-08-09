@@ -27,7 +27,7 @@
                                 <?php echo __get_error_msg(); ?>
                                     <form action="<?php echo site_url('pages/edit'); ?>" method="post">
                                         <input type="hidden" name="id" value="<?php echo $id; ?>">
-                                        <div class="form-group">
+                                        <div class="form-group hide">
                                             <label>Faculty</label>
                                             <select name="faculty" class="form-control input-flat">
                                                 <?php echo __get_faculity($data[0] -> pfaculty,2); ?>

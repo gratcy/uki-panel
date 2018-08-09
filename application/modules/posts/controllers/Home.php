@@ -10,7 +10,7 @@ class Home extends MX_Controller {
 
 	public function index()
 	{
-		$data['data'] = $this -> Posts_model -> __get_posts();
+		$data['data'] = $this -> Posts_model -> __get_posts($this -> permission_lib -> sesresult['ufaculty']);
 		$this->load->view('posts', $data);
 	}
 
@@ -40,7 +40,7 @@ class Home extends MX_Controller {
 			}
 		}
 		else {
-			$data['categories'] = $this -> categories_lib -> __get_categories(0);
+			$data['categories'] = $this -> categories_lib -> __get_categories(0, $this -> permission_lib -> sesresult['ufaculty']);
 			$this->load->view('posts_' . __FUNCTION__, $data);
 		}
 	}
@@ -80,7 +80,7 @@ class Home extends MX_Controller {
 		else {
 			$data['data'] = $this -> Posts_model -> __get_posts_detail($id);
 			$data['id'] = $id;
-			$data['categories'] = $this -> categories_lib -> __get_categories($data['data'][0] -> pcid);
+			$data['categories'] = $this -> categories_lib -> __get_categories($data['data'][0] -> pcid, $this -> permission_lib -> sesresult['ufaculty']);
 			$this->load->view('posts_' . __FUNCTION__, $data);
 		}
 	}
