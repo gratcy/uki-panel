@@ -86,7 +86,6 @@ function __get_rupiah($num,$type=1) {
 }
 
 function __get_roles_by_id($key) {
-    $arr = array();
     $CI =& get_instance();
     return $CI -> cache -> memcached -> sesresult['gid'] !=  $key ? 'no' : '';
 }
@@ -111,4 +110,12 @@ function __get_date($str, $type=1) {
 	elseif ($type == 2) return date('d ',$str).__get_month(date('m',$str)).date(' Y', $str);
 	elseif ($type == 3) return date('d/m/Y H:i', $str);
 	else return date('d ',$str).__get_month(date('m',$str)).date(' Y H:i',$str);
+}
+
+function __get_upload_file($file, $type) {
+    $CI =& get_instance();
+    if ($type == 1)
+    	return $CI -> config -> config['upload']['host'] . $CI -> config -> config['upload']['media']['path'] . $file;
+	else
+    	return $CI -> config -> config['upload']['host'] . $CI -> config -> config['upload']['gallery']['path'] . $file;
 }

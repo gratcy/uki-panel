@@ -26,4 +26,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $config['base_url'] = getenv('BASEURL');
 $config['faculty'] = ['Kedokteran', 'Ekonomi', 'Sosial & Politik', 'Sastra', 'Hukum', 'Teknik', 'Keguruan dan Ilmu Pendidikan'];
 $config['upload']['host'] = getenv('BASEURL');
-$config['upload']['path'] = 'upload/';
+$config['upload']['media']['path'] = 'upload/';
+$config['upload']['gallery']['path'] = 'upload/gallery/';

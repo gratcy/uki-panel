@@ -20,10 +20,10 @@ class Home extends MX_Controller {
 				$fname = time() . $_FILES['file']['name'];
 				$fname = str_replace(' ', '-', $fname);
 				$fname = str_replace('--', '-', $fname);
-				$target_file = FCPATH . $this -> config -> config['upload']['path'] . $fname;
+				$target_file = FCPATH . $this -> config -> config['upload']['media']['path'] . $fname;
 
 			    if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
-					$arr = array('mfaculty' => $this -> permission_lib -> sesresult['ufaculty'], 'mname' => $_FILES['file']['name'], 'mdate' => date('Y-m-d H:i:s'), 'murl' => $this -> config -> config['upload']['host'] . $this -> config -> config['upload']['path'] . $fname, 'mstatus' => 1);
+					$arr = array('mfaculty' => $this -> permission_lib -> sesresult['ufaculty'], 'mname' => $_FILES['file']['name'], 'mdate' => date('Y-m-d H:i:s'), 'mfile' => $fname, 'mstatus' => 1);
 					if ($this -> Media_model -> __insert_media($arr)) {
 						echo json_encode(array('messege' => 'Category berhasil ditambahkan.', 'status' => 200));
 					}

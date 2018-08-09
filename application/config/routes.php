@@ -84,3 +84,14 @@ $route['users_groups/remove/(:num)'] = 'users_groups/home/remove/$1';
 
 $route['media'] = 'media/home';
 $route['media/add'] = 'media/home/add';
+$route['media/remove/(:num)'] = 'media/home/remove/$1';
+
+$route['gallery'] = 'gallery/home';
+$route['gallery/add'] = 'gallery/home/add';
+$route['gallery/edit/?(:num)?'] = 'gallery/home/edit/$1';
+$route['gallery/remove/(:num)'] = 'gallery/home/remove/$1';
+
+$route['categories_gallery'] = 'categories_gallery/home';
+$route['categories_gallery/add'] = 'categories_gallery/home/add';
+$route['categories_gallery/edit/?(:num)?'] = 'categories_gallery/home/edit/$1';
+$route['categories_gallery/remove/(:num)'] = 'categories_gallery/home/remove/$1';

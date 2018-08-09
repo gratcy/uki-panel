@@ -28,8 +28,8 @@
                                 <?php echo __get_error_msg(); ?>
                                     <div class="row">
                                     <?php foreach($data as $k => $v) : ?>
-                                        <a href="<?php echo $v -> murl; ?>" target="_blank" title="<?php echo $v -> mname; ?>">
-                                        <div class="col-3" style="border: 1px solid #ccc;margin: 5px"><img src="<?php echo $v -> murl; ?>" style="max-height: 180px"></div>
+                                        <a href="<?php echo __get_upload_file($v -> mfile, 1); ?>" target="_blank" title="<?php echo $v -> mname; ?>">
+                                        <div class="col-3" style="border: 1px solid #ccc;margin: 5px"><img src="<?php echo __get_upload_file($v -> mfile, 1); ?>" style="max-height: 180px"></div>
                                         </a>
                                     <?php endforeach; ?>
                                     </div>

@@ -1,5 +1,5 @@
 <?php
-class Categories_model extends CI_Model {
+class Categories_gallery_model extends CI_Model {
     function __construct() {
         parent::__construct();
         $this->load->database();
@@ -7,9 +7,9 @@ class Categories_model extends CI_Model {
     
     function __get_categories($type, $parent) {
     	if ($type == 1)
-			$this -> db -> select("* FROM categories_tab WHERE ctype=1 AND (cstatus=1 OR cstatus=0) AND cparent=0", FALSE);
+			$this -> db -> select("* FROM categories_tab WHERE ctype=2 AND (cstatus=1 OR cstatus=0) AND cparent=0", FALSE);
 		else
-			$this -> db -> select("* FROM categories_tab WHERE ctype=1 AND (cstatus=1 OR cstatus=0) AND cparent=" . $parent, FALSE);
+			$this -> db -> select("* FROM categories_tab WHERE ctype=2 AND (cstatus=1 OR cstatus=0) AND cparent=" . $parent, FALSE);
 		return $this -> db -> get() -> result();
 	}
 	
@@ -29,9 +29,9 @@ class Categories_model extends CI_Model {
 
 	function __get_categories_select($type, $parent) {
 		if ($type == 1)
-			$this -> db -> select('cid,cname FROM categories_tab WHERE ctype=1 AND (cstatus=1 OR cstatus=0) AND cparent=0 ORDER BY cname ASC');
+			$this -> db -> select('cid,cname FROM categories_tab WHERE ctype=2 AND (cstatus=1 OR cstatus=0) AND cparent=0 ORDER BY cname ASC');
 		else
-			$this -> db -> select('cid,cname FROM categories_tab WHERE ctype=1 AND (cstatus=1 OR cstatus=0) AND cparent='.$parent.' ORDER BY cname ASC');
+			$this -> db -> select('cid,cname FROM categories_tab WHERE ctype=2 AND (cstatus=1 OR cstatus=0) AND cparent='.$parent.' ORDER BY cname ASC');
 		return $this -> db -> get() -> result();
 	}
 }

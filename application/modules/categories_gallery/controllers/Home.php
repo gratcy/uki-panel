@@ -4,14 +4,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Home extends MX_Controller {
 	function __construct() {
 		parent::__construct();
-		$this -> load -> model('Categories_model');
-		$this -> load -> library('categories/Categories_lib');
+		$this -> load -> model('Categories_gallery_model');
+		$this -> load -> library('categories_gallery/Categories_gallery_lib');
 	}
 
 	public function index()
 	{
-		$data['data'] = $this -> Categories_model -> __get_categories(1, 0);
-		$this->load->view('categories', $data);
+		$data['data'] = $this -> Categories_gallery_model -> __get_categories(1, 0);
+		$this->load->view('categories_gallery', $data);
 	}
 
 	public function add()
@@ -25,23 +25,23 @@ class Home extends MX_Controller {
 
 			if (!$title || !$desc) {
 				__set_error_msg(array('error' => 'Data yang anda masukkan tidak lengkap !!!'));
-				redirect(site_url('categories/add'));
+				redirect(site_url('categories_gallery/add'));
 			}
 			else {
-				$arr = array('cfaculty' => $faculty, 'ctype' => 1, 'cname' => $title, 'cdesc' => $desc, 'cstatus' => $status, 'cparent' => $cparent, 'ccreatedby' => __set_modification_log([], 0, 2), 'cupdatedby' => __set_modification_log([], 0, 2));
-				if ($this -> Categories_model -> __insert_categories($arr)) {
+				$arr = array('cfaculty' => $faculty, 'ctype' => 2, 'cname' => $title, 'cdesc' => $desc, 'cstatus' => $status, 'cparent' => $cparent, 'ccreatedby' => __set_modification_log([], 0, 2), 'cupdatedby' => __set_modification_log([], 0, 2));
+				if ($this -> Categories_gallery_model -> __insert_categories($arr)) {
 					__set_error_msg(array('info' => 'Category berhasil ditambahkan.'));
-					redirect(site_url('categories'));
+					redirect(site_url('categories_gallery'));
 				}
 				else {
 					__set_error_msg(array('error' => 'Gagal menambahkan category !!!'));
-					redirect(site_url('categories'));
+					redirect(site_url('categories_gallery'));
 				}
 			}
 		}
 		else {
-			$data['cparent'] = $this -> categories_lib -> __get_categories_level(0);
-			$this->load->view('categories_' . __FUNCTION__, $data);
+			$data['cparent'] = $this -> categories_gallery_lib -> __get_categories_level(0);
+			$this->load->view('categories_gallery_' . __FUNCTION__, $data);
 		}
 	}
 
@@ -58,30 +58,30 @@ class Home extends MX_Controller {
 			if ($id) {
 				if (!$title || !$desc) {
 					__set_error_msg(array('error' => 'Data yang anda masukkan tidak lengkap !!!'));
-					redirect(site_url('categories/edit/' . $id));
+					redirect(site_url('categories_gallery/edit/' . $id));
 				}
 				else {
-					$arr = array('cfaculty' => $faculty, 'ctype' => 1, 'cname' => $title, 'cdesc' => $desc, 'cstatus' => $status, 'cparent' => $cparent, 'cupdatedby' => __set_modification_log([], 0, 2));
-					if ($this -> Categories_model -> __update_categories($id, $arr)) {	
+					$arr = array('cfaculty' => $faculty, 'ctype' => 2, 'cname' => $title, 'cdesc' => $desc, 'cstatus' => $status, 'cparent' => $cparent, 'cupdatedby' => __set_modification_log([], 0, 2));
+					if ($this -> Categories_gallery_model -> __update_categories($id, $arr)) {	
 						__set_error_msg(array('info' => 'Category berhasil diubah.'));
-						redirect(site_url('categories'));
+						redirect(site_url('categories_gallery'));
 					}
 					else {
 						__set_error_msg(array('error' => 'Gagal mengubah category !!!'));
-						redirect(site_url('categories'));
+						redirect(site_url('categories_gallery'));
 					}
 				}
 			}
 			else {
 				__set_error_msg(array('error' => 'Kesalahan input data !!!'));
-				redirect(site_url('categories'));
+				redirect(site_url('categories_gallery'));
 			}
 		}
 		else {
 			$data['id'] = $id;
-			$data['data'] = $this -> Categories_model -> __get_categories_detail($id);
-			$data['cparent'] = $this -> categories_lib -> __get_categories_level($data['data'][0] -> cparent);
-			$this->load->view('categories_' . __FUNCTION__, $data);
+			$data['data'] = $this -> Categories_gallery_model -> __get_categories_detail($id);
+			$data['cparent'] = $this -> categories_gallery_lib -> __get_categories_level($data['data'][0] -> cparent);
+			$this->load->view('categories_gallery_' . __FUNCTION__, $data);
 		}
 	}
 
@@ -89,16 +89,16 @@ class Home extends MX_Controller {
 	{
 		if (!$id) {
 			__set_error_msg(array('error' => 'Kesalahan input data !!!'));
-			redirect(site_url('categories'));
+			redirect(site_url('categories_gallery'));
 		}
 
-		if ($this -> Categories_model -> __update_categories($id, array('cstatus' => 2, 'cupdatedby' => __set_modification_log([], 0, 2)))) {
+		if ($this -> Categories_gallery_model -> __update_categories($id, array('cstatus' => 2, 'cupdatedby' => __set_modification_log([], 0, 2)))) {
 			__set_error_msg(array('info' => 'Category berhasil di hapus.'));
-			redirect(site_url('categories'));
+			redirect(site_url('categories_gallery'));
 		}
 		else {
 			__set_error_msg(array('error' => 'Gagal hapus category !!!'));
-			redirect(site_url('categories'));
+			redirect(site_url('categories_gallery'));
 		}
 	}
 }
