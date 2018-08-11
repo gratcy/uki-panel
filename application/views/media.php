@@ -21,9 +21,11 @@
                             <div class="card-body">
                                 <h4 class="card-title">Media</h4>
                                 <h6 class="card-subtitle">Show All Media</h6>
-                                <div class="col-6">
-                                    <a href="<?php echo site_url('media/add'); ?>" class="btn btn-primary"><i class="icon-plus"></i> Upload Media</a>
-                                </div>
+                                <?php if (__get_roles('MediaExecute')) : ?>
+                                    <div class="col-6">
+                                        <a href="<?php echo site_url('media/add'); ?>" class="btn btn-primary"><i class="icon-plus"></i> Upload Media</a>
+                                    </div>
+                                <?php endif; ?>
                                 <div class="m-t-40">
                                 <?php echo __get_error_msg(); ?>
                                     <div class="row">

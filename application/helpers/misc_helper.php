@@ -25,7 +25,7 @@ function __get_faculity($id, $type) {
 function __get_roles($key) {
     $arr = array();
     $CI =& get_instance();
-    $permission = $CI -> cache -> memcached -> sesresult['permission'];
+    $permission = $CI -> permission_lib -> sesresult['permission'];
     foreach($permission as $k => $v)
         $arr[$v['pname']] = $v['aaccess'];
     return (isset($arr[$key]) ? $arr[$key] : '');

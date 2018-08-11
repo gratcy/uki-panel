@@ -8,10 +8,6 @@ class Home extends MX_Controller {
 	}
 
 	function index() {
-		$this->load->view('settings', '');
-	}
-	
-	function settings() {
 		if ($_POST) {
 			$uemail = $this -> input -> post('uemail', true);
 			$oldpass = $this -> input -> post('oldpass', true);
@@ -19,14 +15,14 @@ class Home extends MX_Controller {
 			$confpass = $this -> input -> post('confpass', true);
 			$uid = (int) $this -> input -> post('uid');
 			
-			if ($uid == $this -> session->CI->memcachedlib->sesresult['uid']) {
+			if ($uid == $this -> permission_lib->sesresult['uid']) {
 				if ($uemail) {
 					if ($oldpass) {
 						if ($newpass != $confpass) {
 							__set_error_msg(array('error' => 'Password dan password konfirmasi tidak sesuai !!!'));
 							redirect(site_url('settings'));
 						}
-						else if (strlen($newpass) < 6) {
+						else if (strlen($newpass) < 5) {
 							__set_error_msg(array('error' => 'Minimal password 6 karakter !!!'));
 							redirect(site_url('settings'));
 						}
@@ -56,6 +52,9 @@ class Home extends MX_Controller {
 				__set_error_msg(array('error' => 'Kesalahan input data !!!'));
 				redirect(site_url('settings'));
 			}
+		}
+		else {
+			$this->load->view('settings', '');
 		}
 	}
 }

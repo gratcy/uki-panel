@@ -17,7 +17,7 @@ class Home extends MX_Controller {
 	}
 
 	function switchfaculty($id) {
-		if ($this -> permission_lib -> sesresult['uid'] == 6 || $this -> permission_lib -> sesresult['uid'] == 13 || $this -> permission_lib -> sesresult['uid'] == 23 || $this -> permission_lib -> sesresult['uid'] == 1) {
+		if ($this -> permission_lib -> sesresult['uid'] == 1) {
 			$login = $this -> cache -> memcached -> get('__login');
 			$login['ufaculty'] = $id;
 			$this -> cache -> memcached -> delete('__login');

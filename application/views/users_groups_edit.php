@@ -40,6 +40,30 @@
                                             <?php echo __get_status($data[0] -> gstatus,4); ?>
                                         </div>
                                         <div class="form-group">
+                                        <label>Permission</label>
+                                        <table class="table table-striped table-bordered table-hover">
+                                          <thead>
+                                            <tr>
+                                            <th>Name</th>
+                                            <th>Access</th>
+                                            </tr>
+                                          </thead>
+                                          <tbody>
+                                            <?php foreach($permission as $k => $v) : ?>
+                                            <tr>
+                                            <td><?php echo ($v -> pparent != 0 ? '-- '.$v -> pdesc.'' : $v -> pdesc); ?></td>
+                                            <td>
+                                                <label>Yes <?php if ($v -> aaccess == 1) { ?> <input class="uniform" type="radio" value="1" name="perm[<?php echo $v -> pid?>]" checked></label><label> No <input class="uniform" type="radio" value="0" name="perm[<?php echo $v -> pid?>]"></label>
+                                                <?php } else { ?>
+                                                <label><input class="uniform" type="radio" value="1" name="perm[<?php echo $v -> pid?>]"> No</label>
+                                                <label><input class="uniform" type="radio" value="0" name="perm[<?php echo $v -> pid?>]" checked><label>
+                                                <?php } ?></td>
+                                            </tr>
+                                            <?php endforeach; ?>
+                                          </tbody>
+                                          </table>
+                                        </div>
+                                        <div class="form-group">
                                             <button type="submit" class="btn btn-info">Submit <i class="fa fa-save"></i></button>
                                             <button type="button" class="btn btn-secondary" onclick="location.href='javascript:history.go(-1);'">Back <i class="fa fa-arrow-circle-left"></i></button>
                                         </div>
@@ -50,4 +74,5 @@
                     </div>
                     <!-- /# column -->
                 </div>
+            </div>
                 <!-- /# row -->

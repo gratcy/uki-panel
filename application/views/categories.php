@@ -21,9 +21,11 @@
                             <div class="card-body">
                                 <h4 class="card-title">Categories</h4>
                                 <h6 class="card-subtitle">Show All Categories</h6>
-                                <div class="col-6">
-                                    <a href="<?php echo site_url('categories/add'); ?>" class="btn btn-primary"><i class="icon-plus"></i> Add New</a>
-                                </div>
+                                <?php if (__get_roles('PostsCategoriesExecute')) : ?>
+                                    <div class="col-6">
+                                        <a href="<?php echo site_url('categories/add'); ?>" class="btn btn-primary"><i class="icon-plus"></i> Add New</a>
+                                    </div>
+                                <?php endif; ?>
                                 <div class="table-responsive m-t-40">
                                 <?php echo __get_error_msg(); ?>
                                     <table id="myTable" class="table table-bordered table-striped">
@@ -48,9 +50,11 @@
                                                     <td><?php echo __set_modification_log($v -> ccreatedby, 1, 1);?></td>
                                                     <td><?php echo __get_status($v -> cstatus,1);?></td>
                                                       <td>
-                                                          <a href="<?php echo site_url('categories/edit/' . $v -> cid); ?>"><i class="fa fa-pencil"></i></a>
-                                                          &nbsp;
-                                                          <a href="<?php echo site_url('categories/remove/' . $v -> cid); ?>" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-remove"></i></a>
+                                                        <?php if (__get_roles('PostsCategoriesExecute')) : ?>
+                                                              <a href="<?php echo site_url('categories/edit/' . $v -> cid); ?>"><i class="fa fa-pencil"></i></a>
+                                                              &nbsp;
+                                                              <a href="<?php echo site_url('categories/remove/' . $v -> cid); ?>" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-remove"></i></a>
+                                                        <?php endif; ?>
                                                       </td>
                                                 </tr>
                                             <?php endforeach; ?>
