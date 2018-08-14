@@ -30,8 +30,8 @@
                                 <?php echo __get_error_msg(); ?>
                                     <div class="row">
                                     <?php foreach($data as $k => $v) : ?>
-                                        <a href="<?php echo __get_upload_file($v -> mfile); ?>" target="_blank" title="<?php echo $v -> mname; ?>">
-                                        <div class="col-3" style="border: 1px solid #ccc;margin: 5px;display: table;"><img src="<?php echo __get_upload_file($v -> mfile); ?>" style="max-height: 180px"></div>
+                                        <a href="<?php echo __get_upload_file($v -> mfile, 1); ?>" target="_blank" title="<?php echo $v -> mname; ?>">
+                                        <div class="col-3" style="border: 1px solid #ccc;margin: 5px;display: table;"><img src="<?php echo __get_upload_file($v -> mfile, 1); ?>" style="max-height: 180px"></div>
                                           <a href="<?php echo site_url('media/remove/' . $v -> mid); ?>" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-remove"></i></a>
                                         </a>
                                     <?php endforeach; ?>
