@@ -28,9 +28,7 @@
     <script src="<?php echo site_url('assets'); ?>/js/custom.min.js?<?php echo time(); ?>"></script>
     <script src="<?php echo site_url('assets'); ?>/js/lib/datatables/datatables.min.js"></script>
     <script src="<?php echo site_url('assets'); ?>/js/lib/datatables/datatables-init.js"></script>
-    <script src="<?php echo site_url('assets'); ?>/js/lib/html5-editor/wysihtml5-0.3.0.js"></script>
-    <script src="<?php echo site_url('assets'); ?>/js/lib/html5-editor/bootstrap-wysihtml5.js"></script>
-    <script src="<?php echo site_url('assets'); ?>/js/lib/html5-editor/wysihtml5-init.js"></script>
+    <script src="<?php echo site_url('assets'); ?>/js/lib/tinymce/tinymce.min.js"></script>
     <script src="<?php echo site_url('assets'); ?>/js/lib/dropzone/dropzone.js"></script>
 
 </body>

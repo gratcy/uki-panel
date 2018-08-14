@@ -25,10 +25,10 @@ class Home extends MX_Controller {
 			    if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
 					$arr = array('mfaculty' => $this -> permission_lib -> sesresult['ufaculty'], 'mname' => $_FILES['file']['name'], 'mdate' => date('Y-m-d H:i:s'), 'mfile' => $fname, 'mstatus' => 1);
 					if ($this -> Media_model -> __insert_media($arr)) {
-						echo json_encode(array('messege' => 'Category berhasil ditambahkan.', 'status' => 200));
+						echo json_encode(array('messege' => 'Media berhasil ditambahkan.', 'status' => 200));
 					}
 					else {
-						echo json_encode(array('messege' => 'Gagal menambahkan category !!!', 'status' => 400));
+						echo json_encode(array('messege' => 'Gagal menambahkan media !!!', 'status' => 400));
 					}
 			    }
 			    else {
@@ -53,12 +53,12 @@ class Home extends MX_Controller {
 			redirect(site_url('media'));
 		}
 
-		if ($this -> Media_model -> __update_media($id, array('cstatus' => 0, 'cupdatedby' => __set_modification_log([], 0, 2)))) {
-			__set_error_msg(array('info' => 'Category berhasil di hapus.'));
+		if ($this -> Media_model -> __update_media($id, array('mstatus' => 0))) {
+			__set_error_msg(array('info' => 'Media berhasil di hapus.'));
 			redirect(site_url('media'));
 		}
 		else {
-			__set_error_msg(array('error' => 'Gagal hapus category !!!'));
+			__set_error_msg(array('error' => 'Gagal hapus media !!!'));
 			redirect(site_url('media'));
 		}
 	}

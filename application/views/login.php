@@ -39,7 +39,9 @@
                     <div class="col-lg-4">
                         <div class="login-content card">
                             <div class="login-form">
-                                <h4>Login</h4>
+                                <div style="text-align: center;margin: 0 auto;padding-bottom: 20px">
+                                    <span><i class="fa fa-sign-in f-s-50"></i></span>
+                                </div>
                                 <?php echo __get_error_msg(); ?>
                                 <form action="<?php echo site_url('login/logging'); ?>" method="post">
                                     <div class="form-group">
