@@ -28,3 +28,4 @@ $config['faculty'] = ['Kedokteran', 'Ekonomi', 'Sosial & Politik', 'Sastra', 'Hu
 $config['upload']['host'] = getenv('BASEURL');
 $config['upload']['media']['path'] = 'upload/';
 $config['upload']['gallery']['path'] = 'upload/gallery/';
+$config['upload']['slideshow']['path'] = 'upload/slideshow/';

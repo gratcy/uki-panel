@@ -116,6 +116,8 @@ function __get_upload_file($file, $type) {
     $CI =& get_instance();
     if ($type == 1)
     	return $CI -> config -> config['upload']['host'] . $CI -> config -> config['upload']['media']['path'] . $file;
-	else
+	elseif ($type == 2)
     	return $CI -> config -> config['upload']['host'] . $CI -> config -> config['upload']['gallery']['path'] . $file;
+    else
+    	return $CI -> config -> config['upload']['host'] . $CI -> config -> config['upload']['slideshow']['path'] . $file;
 }

@@ -31,6 +31,9 @@
                                 </ul>
                             </li>
                         <?php endif; ?>
+                        <?php if (__get_roles('SlideShowView')) : ?>
+                            <li> <a href="<?php echo site_url('slideshow'); ?>"><i class="fa fa-photo"></i><span class="hide-menu">Slideshow </span></a></li>
+                        <?php endif; ?>
                         <?php if (__get_roles('MediaView')) : ?>
                             <li> <a href="<?php echo site_url('media'); ?>"><i class="fa fa-file-photo-o"></i><span class="hide-menu">Media </span></a></li>
                         <?php endif; ?>

@@ -3,11 +3,11 @@
             <!-- Bread crumb -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-primary">Gallery</h3> </div>
+                    <h3 class="text-primary">Slideshow</h3> </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item active">Gallery</li>
+                        <li class="breadcrumb-item active">Slideshow</li>
                     </ol>
                 </div>
             </div>
@@ -19,44 +19,32 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-title">
-                                <h4>Update Gallery</h4>
+                                <h4>Add New Slideshow</h4>
                             </div>
+                            <h6 class="card-subtitle">Updated By <?php echo __set_modification_log($data[0] -> supdatedby, 1, 1);?> | Updated Date <?php echo __set_modification_log($data[0] -> supdatedby, 2, 1);?></h6>
                             <div class="card-body">
                                 <div class="basic-form">
                                 <?php echo __get_error_msg(); ?>
-                                    <form action="<?php echo site_url('gallery/edit'); ?>" method="post" enctype="multipart/form-data">
+                                    <form action="<?php echo site_url('slideshow/edit'); ?>" method="post" enctype="multipart/form-data">
                                         <input type="hidden" name="id" value="<?php echo $id; ?>">
-                                        <div class="form-group hide">
-                                            <label>Faculty</label>
-                                            <select name="faculty" class="form-control input-flat" placeholder="Input Flat ">
-                                                <?php echo __get_faculity($data[0] -> gfaculty,2); ?>
-                                            </select>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>Category</label>
-                                            <select name="category" class="form-control input-flat" placeholder="Input Flat ">
-                                                <?php echo $categories; ?>
-                                            </select>
-                                        </div>
+                                        <input type="hidden" name="oldfile" value="<?php echo $data[0] -> sfile; ?>">
                                         <div class="form-group">
                                             <label>Title</label>
-                                            <input type="text" name="title" class="form-control input-default " placeholder="Input Default" value="<?php echo $data[0] -> gtitle; ?>">
+                                            <input type="text" name="title" class="form-control input-default" value="<?php echo $data[0] -> stitle; ?>" placeholder="Input Slideshow Title">
                                         </div>
                                         <div class="form-group">
-                                            <label>Content</label>
-                                        <textarea class="textarea_editor form-control" rows="15" placeholder="Enter text ..." name="content" style="height:450px"><?php echo $data[0] -> gcontent; ?></textarea>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>File</label>
-                                            <input type="file" id="gallery-photo-add" name="file" class="form-control">
-                                            <br />
-                                            <img class="gallery-current" src="<?php echo __get_upload_file($data[0] -> gfile, 2); ?>" style="height: 150px;">
-                                            <br />
-                                            <div class="gallery-preview"></div>
+                                            <label>Description</label>
+                                        <textarea class="form-control" rows="3" placeholder="Enter text ..." name="desc" style="height:100px"><?php echo $data[0] -> sdesc; ?></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>Status</label>
-                                            <?php echo __get_status($data[0] -> gstatus,2); ?>
+                                            <?php echo __get_status($data[0] -> sstatus,4); ?>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>File</label>
+                                            <input type="file" id="slideshow-picture-add" name="file" class="form-control">
+                                            <br />
+                                            <div class="slideshow-preview"><img class="current-image-slideshow" src="<?php echo __get_upload_file($data[0] -> sfile,3); ?>"></div>
                                         </div>
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-info">Submit <i class="fa fa-save"></i></button>

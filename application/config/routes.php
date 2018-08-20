@@ -96,3 +96,8 @@ $route['categories_gallery'] = 'categories_gallery/home';
 $route['categories_gallery/add'] = 'categories_gallery/home/add';
 $route['categories_gallery/edit/?(:num)?'] = 'categories_gallery/home/edit/$1';
 $route['categories_gallery/remove/(:num)'] = 'categories_gallery/home/remove/$1';
+
+$route['slideshow'] = 'slideshow/home';
+$route['slideshow/add'] = 'slideshow/home/add';
+$route['slideshow/edit/?(:num)?'] = 'slideshow/home/edit/$1';
+$route['slideshow/remove/(:num)'] = 'slideshow/home/remove/$1';
