@@ -10,7 +10,7 @@ class Home extends MX_Controller {
 
 	public function index()
 	{
-		$data['data'] = $this -> Pages_model -> __get_pages($this -> permission_lib -> sesresult['ufaculty']);
+		$data['data'] = $this -> Pages_model -> __get_pages($this -> permission_lib -> sesresult['ufaculty'], 0);
 		$this->load->view('pages', $data);
 	}
 
@@ -28,7 +28,7 @@ class Home extends MX_Controller {
 				redirect(site_url('pages/add'));
 			}
 			else {
-				$arr = array('pfaculty' => $faculty, 'ptitle' => $title, 'pcontent' => $content, 'pstatus' => $status, 'pparent' => $pparent, 'pcreatedby' => __set_modification_log([], 0, 2));
+				$arr = array('pfaculty' => $faculty, 'ptitle' => $title, 'pcontent' => $content, 'pstatus' => $status, 'pparent' => $pparent, 'pcreatedby' => __set_modification_log([], 0, 2), 'pupdatedby' => __set_modification_log([], 0, 2));
 				if ($this -> Pages_model -> __insert_pages($arr)) {
 					__set_error_msg(array('info' => 'Page berhasil ditambahkan.'));
 					redirect(site_url('pages'));

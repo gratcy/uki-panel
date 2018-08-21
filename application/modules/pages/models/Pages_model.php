@@ -5,8 +5,8 @@ class Pages_model extends CI_Model {
         $this->load->database();
     }
     
-    function __get_pages($faculty) {
-		$this -> db -> select('a.*,b.ptitle as pname FROM pages_tab a LEFT JOIN pages_tab b ON a.pparent=b.pid WHERE (a.pstatus=1 OR a.pstatus=0) AND a.pfaculty=' . $faculty . '  ORDER BY a.pparent ASC', FALSE);
+    function __get_pages($faculty, $parent) {
+		$this -> db -> select('a.*,b.ptitle as pname FROM pages_tab a LEFT JOIN pages_tab b ON a.pparent=b.pid WHERE (a.pstatus=1 OR a.pstatus=0) AND a.pfaculty=' . $faculty . ' AND a.pparent='.$parent.' ORDER BY a.pid DESC', FALSE);
 		return $this -> db -> get() -> result();
 	}
 	

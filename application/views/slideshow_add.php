@@ -26,6 +26,10 @@
                                 <?php echo __get_error_msg(); ?>
                                     <form action="<?php echo site_url('slideshow/add'); ?>" method="post" enctype="multipart/form-data">
                                         <div class="form-group">
+                                            <label>Link (URL)</label>
+                                            <input type="text" name="url" class="form-control input-default " placeholder="Input Slideshow Link">
+                                        </div>
+                                        <div class="form-group">
                                             <label>Title</label>
                                             <input type="text" name="title" class="form-control input-default " placeholder="Input Slideshow Title">
                                         </div>

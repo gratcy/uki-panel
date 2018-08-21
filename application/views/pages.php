@@ -28,7 +28,7 @@
                                 <?php endif; ?>
                                 <div class="table-responsive m-t-40">
                                 <?php echo __get_error_msg(); ?>
-                                    <table id="myTable" class="table table-bordered table-striped">
+                                    <table class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>Parent</th>
@@ -43,7 +43,7 @@
                                         <tbody>
                                             <?php foreach($data as $k => $v) : ?>
                                                 <tr>
-                                                    <td><?php echo $v -> pparent == 0 ? 'Main' : $v -> pname;?></td>
+                                                    <td>Main</td>
                                                     <td><?php echo __get_faculity($v -> pfaculty, 1);?></td>
                                                     <td><?php echo $v -> ptitle;?></td>
                                                     <td><?php echo __set_modification_log($v -> pcreatedby, 2, 1);?></td>
@@ -57,6 +57,26 @@
                                                         <?php endif; ?>
                                                     </td>
                                                 </tr>
+                                            <?php
+                                            $childs = $this -> Pages_model -> __get_pages($this -> permission_lib -> sesresult['ufaculty'], $v -> pid);
+                                            foreach($childs as $k1 => $v1) :
+                                            ?>
+                                                <tr>
+                                                    <td>-- <?php echo $v1 -> pname;?></td>
+                                                    <td><?php echo __get_faculity($v1 -> pfaculty, 1);?></td>
+                                                    <td><?php echo $v1 -> ptitle;?></td>
+                                                    <td><?php echo __set_modification_log($v1 -> pcreatedby, 2, 1);?></td>
+                                                    <td><?php echo __set_modification_log($v1 -> pcreatedby, 1, 1);?></td>
+                                                    <td><?php echo __get_status($v1 -> pstatus,1);?></td>
+                                                    <td>
+                                                        <?php if (__get_roles('PagesExecute')) : ?>
+                                                          <a href="<?php echo site_url('pages/edit/' . $v1 -> pid); ?>"><i class="fa fa-pencil"></i></a>
+                                                          &nbsp;
+                                                          <a href="<?php echo site_url('pages/remove/' . $v1 -> pid); ?>" onclick="return confirm('Are you sure you want to delete this item?');"><i class="fa fa-remove"></i></a>
+                                                        <?php endif; ?>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach; ?>
                                             <?php endforeach; ?>
                                         </tbody>
                                     </table>

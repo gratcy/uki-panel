@@ -6921,5 +6921,5 @@ tbody tr td:last-child {
     display: inline-block !important;
   }
 }
-.gallery-preview img, .slideshow-preview img {height: 400px}
+.gallery-preview img, .slideshow-preview img {width: 400px}
 .current-image-slideshow, .gallery-current {width: 400px}

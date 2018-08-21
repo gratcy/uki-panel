@@ -16,12 +16,17 @@ class Home extends MX_Controller {
 	public function add()
 	{
 		if ($_POST) {
+			$url = $this -> input -> post('url');
 			$title = $this -> input -> post('title');
 			$desc = $this -> input -> post('desc');
 			$status = (int) $this -> input -> post('status');
 
 			if (!$title || !$desc) {
 				__set_error_msg(array('error' => 'Data yang anda masukkan tidak lengkap !!!'));
+				redirect(site_url('slideshow/add'));
+			}
+			else if (!filter_var($url, FILTER_VALIDATE_URL)) {
+				__set_error_msg(array('error' => 'Link URL salah !!!'));
 				redirect(site_url('slideshow/add'));
 			}
 			else {
@@ -37,7 +42,7 @@ class Home extends MX_Controller {
 						$target_file = FCPATH . $this -> config -> config['upload']['slideshow']['path'] . $fname;
 
 					    if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
-							$arr = array('sfaculty' => $this -> permission_lib -> sesresult['ufaculty'], 'stitle' => $title, 'sdesc' => $desc, 'sstatus' => $status, 'sfile' => $fname, 'screatedby' => __set_modification_log([], 0, 2), 'supdatedby' => __set_modification_log([], 0, 2));
+							$arr = array('sfaculty' => $this -> permission_lib -> sesresult['ufaculty'], 'surl' => $url, 'stitle' => $title, 'sdesc' => $desc, 'sstatus' => $status, 'sfile' => $fname, 'screatedby' => __set_modification_log([], 0, 2), 'supdatedby' => __set_modification_log([], 0, 2));
 							
 							if ($this -> Slideshow_model -> __insert_slideshow($arr)) {
 								__set_error_msg(array('info' => 'slideshow berhasil ditambahkan.'));
@@ -67,6 +72,7 @@ class Home extends MX_Controller {
 	{
 		if ($_POST) {
 			$id = (int) $this -> input -> post('id');
+			$url = $this -> input -> post('url');
 			$title = $this -> input -> post('title');
 			$desc = $this -> input -> post('desc');
 			$oldfile = $this -> input -> post('oldfile');
@@ -75,6 +81,10 @@ class Home extends MX_Controller {
 			if ($id) {
 				if (!$title || !$desc) {
 					__set_error_msg(array('error' => 'Data yang anda masukkan tidak lengkap !!!'));
+					redirect(site_url('slideshow/edit/' . $id));
+				}
+				else if (!filter_var($url, FILTER_VALIDATE_URL)) {
+					__set_error_msg(array('error' => 'Link URL salah !!!'));
 					redirect(site_url('slideshow/edit/' . $id));
 				}
 				else {
@@ -97,7 +107,7 @@ class Home extends MX_Controller {
 						}
 					}
 					
-					$arr = array('stitle' => $title, 'sdesc' => $desc, 'sstatus' => $status, 'supdatedby' => __set_modification_log([], 0, 2));
+					$arr = array('stitle' => $title, 'surl' => $url, 'sdesc' => $desc, 'sstatus' => $status, 'supdatedby' => __set_modification_log([], 0, 2));
 					
 					if ($slideshow === true && !empty($fname)) {
 						$arr['sfile'] = $fname;

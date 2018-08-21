@@ -29,6 +29,10 @@
                                         <input type="hidden" name="id" value="<?php echo $id; ?>">
                                         <input type="hidden" name="oldfile" value="<?php echo $data[0] -> sfile; ?>">
                                         <div class="form-group">
+                                            <label>Link (URL)</label>
+                                            <input type="text" name="url" class="form-control input-default " value="<?php echo $data[0] -> surl; ?>" placeholder="Input Slideshow Link">
+                                        </div>
+                                        <div class="form-group">
                                             <label>Title</label>
                                             <input type="text" name="title" class="form-control input-default" value="<?php echo $data[0] -> stitle; ?>" placeholder="Input Slideshow Title">
                                         </div>

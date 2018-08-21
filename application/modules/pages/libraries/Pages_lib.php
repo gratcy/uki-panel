@@ -22,9 +22,9 @@ class Pages_lib {
 			$pagesChild = $this -> _ci -> Pages_model -> __get_pages_select(2, $v -> pid, $faculty);
 			foreach($pagesChild as $k1 => $v1) :
 				if ($id == $v1 -> pid)
-					$res .= '<option value="'.$v1 -> pid.'" selected>-- '.$v1 -> ptitle.'</option>';
+					$res .= '<option value="'.$v -> pid.'" selected>-- '.$v1 -> ptitle.'</option>';
 				else
-					$res .= '<option value="'.$v1 -> pid.'">-- '.$v1 -> ptitle.'</option>';
+					$res .= '<option value="'.$v -> pid.'">-- '.$v1 -> ptitle.'</option>';
 			endforeach;
 		endforeach;
 
