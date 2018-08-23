@@ -25,7 +25,7 @@
                                 <div class="basic-form">
                                 <?php echo __get_error_msg(); ?>
                                     <form action="<?php echo site_url('categories/add'); ?>" method="post">
-                                        <div class="form-group">
+                                        <div class="form-group hide">
                                             <label>Parent</label>
                                             <select name="cparent" class="form-control input-flat">
                                                 <?php echo $cparent; ?>

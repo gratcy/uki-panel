@@ -50,7 +50,7 @@
                                             <label>File</label>
                                             <input type="file" id="gallery-photo-add" name="file" class="form-control">
                                             <br />
-                                            <img class="gallery-current" src="<?php echo __get_upload_file($data[0] -> gfile, 2); ?>" style="height: 150px;">
+                                            <img class="gallery-current" src="<?php echo __get_upload_file($data[0] -> gfile, 2); ?>">
                                             <br />
                                             <div class="gallery-preview"></div>
                                         </div>
