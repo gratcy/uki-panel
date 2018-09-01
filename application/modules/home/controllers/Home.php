@@ -18,10 +18,10 @@ class Home extends MX_Controller {
 
 	function switchfaculty($id) {
 		if ($this -> permission_lib -> sesresult['uid'] == 1) {
-			$login = $this -> cache -> memcached -> get('__login');
+			$login = $this -> cache -> memcached -> get('__login' . $this -> permission_lib -> sesId);
 			$login['ufaculty'] = $id;
-			$this -> cache -> memcached -> delete('__login');
-			$this -> cache -> memcached -> save('__login', $login, time()+60*60*24*100);
+			$this -> cache -> memcached -> delete('__login' . $this -> permission_lib -> sesId);
+			$this -> cache -> memcached -> save('__login' . $this -> permission_lib -> sesId, $login, time()+60*60*24*100);
 			redirect($_SERVER['HTTP_REFERER']);
 		}
 		else

@@ -6,14 +6,17 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Permission_lib {
 	private $_ci;
 	public $login = false;
+	public $sesId = '';
 	public $sesresult = array();
 	
 	function __construct() {
 		$this -> _ci =& get_instance();
-		if ($this -> _ci -> cache -> memcached -> get('__login')) {
-			if ($this -> _ci -> cache -> memcached -> get('__login')['uid']) {
+		session_start();
+		$this -> sesId = session_id();
+		if ($this -> _ci -> cache -> memcached -> get('__login' . $this -> sesId)) {
+			if ($this -> _ci -> cache -> memcached -> get('__login' . $this -> sesId)['uid']) {
 				$this -> login = true;
-				$this -> sesresult = $this -> _ci -> cache -> memcached -> get('__login');
+				$this -> sesresult = $this -> _ci -> cache -> memcached -> get('__login' . $this -> sesId);
 			}
 		}
 
