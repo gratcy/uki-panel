@@ -22,6 +22,9 @@
                         <?php if (__get_roles('PagesView')) : ?>
                            <li> <a href="<?php echo site_url('pages'); ?>"><i class="fa fa-book"></i><span class="hide-menu">Pages </span></a></li>
                         <?php endif; ?>
+                        <?php if (__get_roles('TestimonyView')) : ?>
+                           <li> <a href="<?php echo site_url('testimony'); ?>"><i class="fa fa-volume-up"></i><span class="hide-menu">Testimonial </span></a></li>
+                        <?php endif; ?>
                         <?php if (__get_roles('PostsView') || __get_roles('PostsCategoriesView')) : ?>
                             <li> <a class="has-arrow  " href="<?php echo site_url('posts'); ?>" aria-expanded="false"><i class="fa fa-pencil"></i><span class="hide-menu">Posts <span class="label label-rouded label-primary pull-right">3</span></span></a>
                                 <ul aria-expanded="false" class="collapse">

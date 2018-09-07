@@ -101,3 +101,8 @@ $route['slideshow'] = 'slideshow/home';
 $route['slideshow/add'] = 'slideshow/home/add';
 $route['slideshow/edit/?(:num)?'] = 'slideshow/home/edit/$1';
 $route['slideshow/remove/(:num)'] = 'slideshow/home/remove/$1';
+
+$route['testimony'] = 'testimony/home';
+$route['testimony/add'] = 'testimony/home/add';
+$route['testimony/edit/?(:num)?'] = 'testimony/home/edit/$1';
+$route['testimony/remove/(:num)'] = 'testimony/home/remove/$1';
