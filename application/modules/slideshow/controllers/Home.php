@@ -25,7 +25,7 @@ class Home extends MX_Controller {
 				__set_error_msg(array('error' => 'Data yang anda masukkan tidak lengkap !!!'));
 				redirect(site_url('slideshow/add'));
 			}
-			else if (!filter_var($url, FILTER_VALIDATE_URL)) {
+			else if (!empty($url) && !filter_var($url, FILTER_VALIDATE_URL)) {
 				__set_error_msg(array('error' => 'Link URL salah !!!'));
 				redirect(site_url('slideshow/add'));
 			}
@@ -83,7 +83,7 @@ class Home extends MX_Controller {
 					__set_error_msg(array('error' => 'Data yang anda masukkan tidak lengkap !!!'));
 					redirect(site_url('slideshow/edit/' . $id));
 				}
-				else if (!filter_var($url, FILTER_VALIDATE_URL)) {
+				else if (!empty($url) && !filter_var($url, FILTER_VALIDATE_URL)) {
 					__set_error_msg(array('error' => 'Link URL salah !!!'));
 					redirect(site_url('slideshow/edit/' . $id));
 				}
