@@ -48,7 +48,7 @@ class Home extends MX_Controller {
 					redirect(site_url('users/add'));
 				}
 				else {
-					$arr = array('ugid' => $group, 'ufaculty' => $faculty, 'uname' => $name, 'udesc' => $desc, 'upass' => md5(sha1($confpass, true)), 'ustatus' => $status, 'ucreatedby' => __set_modification_log([], 0, 2), 'uupdatedby' => __set_modification_log([], 0, 2));
+					$arr = array('ugid' => $group, 'uemail' => $email, 'ufaculty' => $faculty, 'uname' => $name, 'udesc' => $desc, 'upass' => md5(sha1($confpass, true)), 'ustatus' => $status, 'ucreatedby' => __set_modification_log([], 0, 2), 'uupdatedby' => __set_modification_log([], 0, 2));
 					if ($this -> Users_model -> __insert_users($arr)) {
 						__set_error_msg(array('info' => 'User berhasil ditambahkan.'));
 						redirect(site_url('users'));
