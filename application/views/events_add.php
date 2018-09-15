@@ -3,11 +3,11 @@
             <!-- Bread crumb -->
             <div class="row page-titles">
                 <div class="col-md-5 align-self-center">
-                    <h3 class="text-primary">Posts</h3> </div>
+                    <h3 class="text-primary">Events</h3> </div>
                 <div class="col-md-7 align-self-center">
                     <ol class="breadcrumb">
                         <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                        <li class="breadcrumb-item active">Posts</li>
+                        <li class="breadcrumb-item active">Events</li>
                     </ol>
                 </div>
             </div>
@@ -19,38 +19,37 @@
                     <div class="col-lg-12">
                         <div class="card">
                             <div class="card-title">
-                                <h4>Edit Posts</h4>
+                                <h4>Add New Events</h4>
                             </div>
-                            <h6 class="card-subtitle">Updated By <?php echo __set_modification_log($data[0] -> pupdatedby, 1, 1);?> | Updated Date <?php echo __set_modification_log($data[0] -> pupdatedby, 2, 1);?></h6>
-
                             <div class="card-body">
                                 <div class="basic-form">
                                 <?php echo __get_error_msg(); ?>
-                                    <form action="<?php echo site_url('posts/edit'); ?>" method="post">
-                                        <input type="hidden" name="id" value="<?php echo $id; ?>">
+                                    <form action="<?php echo site_url('events/add'); ?>" method="post">
                                         <div class="form-group hide">
                                             <label>Faculty</label>
                                             <select name="faculty" class="form-control input-flat" placeholder="Input Flat ">
-                                                <?php echo __get_faculity($data[0] -> pfaculty,2); ?>
+                                                <?php echo __get_faculity($this -> permission_lib -> sesresult['ufaculty'],2); ?>
                                             </select>
                                         </div>
                                         <div class="form-group">
-                                            <label>Category</label>
-                                            <select name="category" class="form-control input-flat" placeholder="Input Flat ">
-                                                <?php echo $categories; ?>
-                                            </select>
+                                            <label>Event Date</label>
+                                            <input type="text" id="datetimepicker" name="waktu" class="form-control input-default " placeholder="Date Time">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Location</label>
+                                            <input type="text" name="location" class="form-control input-default " placeholder="Location">
                                         </div>
                                         <div class="form-group">
                                             <label>Title</label>
-                                            <input type="text" name="title" class="form-control input-default " placeholder="Input Title" value="<?php echo $data[0] -> ptitle; ?>">
+                                            <input type="text" name="title" class="form-control input-default " placeholder="Title">
                                         </div>
                                         <div class="form-group">
                                             <label>Content</label>
-                                        <textarea class="textarea_editor form-control" rows="15" placeholder="Enter text ..." name="content" style="height:450px"><?php echo $data[0] -> pcontent; ?></textarea>
+                                        <textarea class="textarea_editor form-control" rows="15" placeholder="Enter text ..." name="content" style="height:450px"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>Status</label>
-                                            <?php echo __get_status($data[0] -> pstatus,2); ?>
+                                            <?php echo __get_status(0,2); ?>
                                         </div>
                                         <div class="form-group">
                                             <button type="submit" class="btn btn-info">Submit <i class="fa fa-save"></i></button>

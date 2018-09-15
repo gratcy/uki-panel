@@ -106,3 +106,8 @@ $route['testimony'] = 'testimony/home';
 $route['testimony/add'] = 'testimony/home/add';
 $route['testimony/edit/?(:num)?'] = 'testimony/home/edit/$1';
 $route['testimony/remove/(:num)'] = 'testimony/home/remove/$1';
+
+$route['events'] = 'events/home';
+$route['events/add'] = 'events/home/add';
+$route['events/edit/?(:num)?'] = 'events/home/edit/$1';
+$route['events/remove/(:num)'] = 'events/home/remove/$1';
