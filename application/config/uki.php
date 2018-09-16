@@ -30,3 +30,4 @@ $config['upload']['media']['path'] = 'upload/';
 $config['upload']['gallery']['path'] = 'upload/gallery/';
 $config['upload']['slideshow']['path'] = 'upload/slideshow/';
 $config['upload']['testimonial']['path'] = 'upload/testimonial/';
+$config['upload']['events']['path'] = 'upload/events/';

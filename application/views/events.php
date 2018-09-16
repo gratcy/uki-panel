@@ -34,6 +34,7 @@
                                                 <th>Faculty</th>
                                                 <th>Event Date</th>
                                                 <th>Title</th>
+                                                <th>Cover</th>
                                                 <th>Created Date</th>
                                                 <th>Created By</th>
                                                 <th>Status</th>
@@ -46,6 +47,7 @@
                                                     <td><?php echo __get_faculity($v -> efaculty, 1);?></td>
                                                     <td><?php echo __get_date(strtotime($v -> edate), 3);?></td>
                                                     <td><?php echo $v -> etitle;?></td>
+                                                    <td><a href="<?php echo __get_upload_file($v -> ecover, 5);?>" target="_blank">View</a></td>
                                                     <td><?php echo __set_modification_log($v -> ecreatedby, 2, 1);?></td>
                                                     <td><?php echo __set_modification_log($v -> ecreatedby, 1, 1);?></td>
                                                     <td><?php echo __get_status($v -> estatus,1);?></td>

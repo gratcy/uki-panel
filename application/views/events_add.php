@@ -24,7 +24,7 @@
                             <div class="card-body">
                                 <div class="basic-form">
                                 <?php echo __get_error_msg(); ?>
-                                    <form action="<?php echo site_url('events/add'); ?>" method="post">
+                                    <form action="<?php echo site_url('events/add'); ?>" method="post" enctype="multipart/form-data">
                                         <div class="form-group hide">
                                             <label>Faculty</label>
                                             <select name="faculty" class="form-control input-flat" placeholder="Input Flat ">
@@ -46,6 +46,12 @@
                                         <div class="form-group">
                                             <label>Content</label>
                                         <textarea class="textarea_editor form-control" rows="15" placeholder="Enter text ..." name="content" style="height:450px"></textarea>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Cover</label>
+                                            <input type="file" id="gallery-photo-add" name="file" class="form-control">
+                                            <br />
+                                            <div class="gallery-preview"></div>
                                         </div>
                                         <div class="form-group">
                                             <label>Status</label>

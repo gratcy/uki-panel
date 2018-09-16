@@ -31,6 +31,7 @@
                                     <table id="myTable" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
+                                                <th>ID</th>
                                                 <th>Faculty</th>
                                                 <th>Name</th>
                                                 <th>Created Date</th>
@@ -42,6 +43,7 @@
                                         <tbody>
                                             <?php foreach($data as $k => $v) : ?>
                                                 <tr>
+                                                    <td><?php echo $v -> cid;?></td>
                                                     <td><?php echo __get_faculity($v -> cfaculty, 1);?></td>
                                                     <td><?php echo $v -> cname;?></td>
                                                     <td><?php echo __set_modification_log($v -> ccreatedby, 2, 1);?></td>

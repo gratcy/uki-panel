@@ -46,7 +46,7 @@ class Home extends MX_Controller {
 							}
 						}
 						else {
-							__set_error_msg(array('error' => 'Gagal upload file !!!'));
+							__set_error_msg(array('error' => 'Gagal upload photo !!!'));
 							redirect(site_url('testimony'));
 						}
 					}

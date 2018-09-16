@@ -6,7 +6,7 @@ class Events_model extends CI_Model {
     }
     
     function __get_events($faculty) {
-		$this -> db -> select("* FROM events_tab WHERE (estatus=1 OR estatus=0) AND efaculty=" . $faculty, FALSE);
+		$this -> db -> select("* FROM events_tab WHERE (estatus=1 OR estatus=0 OR estatus=2) AND efaculty=" . $faculty, FALSE);
 		return $this -> db -> get() -> result();
 	}
 	
