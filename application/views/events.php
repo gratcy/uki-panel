@@ -45,7 +45,7 @@
                                             <?php foreach($data as $k => $v) : ?>
                                                 <tr>
                                                     <td><?php echo __get_faculity($v -> efaculty, 1);?></td>
-                                                    <td><?php echo __get_date(strtotime($v -> edate), 3);?></td>
+                                                    <td><?php echo __get_date(strtotime($v -> edatefrom), 3) . ' / ' . __get_date(strtotime($v -> edateto), 3); ?></td>
                                                     <td><?php echo $v -> etitle;?></td>
                                                     <td><a href="<?php echo __get_upload_file($v -> ecover, 5);?>" target="_blank">View</a></td>
                                                     <td><?php echo __set_modification_log($v -> ecreatedby, 2, 1);?></td>

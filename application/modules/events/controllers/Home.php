@@ -21,9 +21,10 @@ class Home extends MX_Controller {
 			$title = $this -> input -> post('title');
 			$content = $this -> input -> post('content');
 			$location = $this -> input -> post('location');
-			$waktu = $this -> input -> post('waktu');
+			$datefrom = $this -> input -> post('datefrom');
+			$dateto = $this -> input -> post('dateto');
 
-			if (!$title || !$content || !$location || !$waktu) {
+			if (!$title || !$content || !$location || !$datefrom || !$dateto) {
 				__set_error_msg(array('error' => 'Data yang anda masukkan tidak lengkap !!!'));
 				redirect(site_url('events/add'));
 			}
@@ -36,10 +37,12 @@ class Home extends MX_Controller {
 						$target_file = FCPATH . $this -> config -> config['upload']['events']['path'] . $fname;
 
 					    if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
-							$waktu = str_replace('/', '-', $waktu);
-							$waktu = strtotime($waktu);
+							$datefrom = str_replace('/', '-', $datefrom);
+							$datefrom = strtotime($datefrom);
+							$dateto = str_replace('/', '-', $dateto);
+							$dateto = strtotime($dateto);
 
-							$arr = array('efaculty' => $faculty, 'elocation' => $location, 'edate' => date('Y-m-d H:i:s', $waktu), 'ecover' => $fname, 'etitle' => $title, 'econtent' => $content, 'estatus' => $status, 'ecreatedby' => __set_modification_log([], 0, 2), 'eupdatedby' => __set_modification_log([], 0, 2));
+							$arr = array('efaculty' => $faculty, 'elocation' => $location, 'edatefrom' => date('Y-m-d H:i:s', $datefrom), 'edateto' => date('Y-m-d H:i:s', $dateto), 'ecover' => $fname, 'etitle' => $title, 'econtent' => $content, 'estatus' => $status, 'ecreatedby' => __set_modification_log([], 0, 2), 'eupdatedby' => __set_modification_log([], 0, 2));
 							if ($this -> Events_model -> __insert_events($arr)) {
 								__set_error_msg(array('info' => 'Event berhasil ditambahkan.'));
 								redirect(site_url('events'));
@@ -79,16 +82,20 @@ class Home extends MX_Controller {
 			$title = $this -> input -> post('title');
 			$content = $this -> input -> post('content');
 			$location = $this -> input -> post('location');
-			$waktu = $this -> input -> post('waktu');
+			$datefrom = $this -> input -> post('datefrom');
+			$dateto = $this -> input -> post('dateto');
 
 			if ($id) {
-				if (!$title || !$content || !$location || !$waktu) {
+				if (!$title || !$content || !$location || !$datefrom) {
 					__set_error_msg(array('error' => 'Data yang anda masukkan tidak lengkap !!!'));
 					redirect(site_url('events/edit/' . $id));
 				}
 				else {
-					$waktu = str_replace('/', '-', $waktu);
-					$waktu = strtotime($waktu);
+					$datefrom = str_replace('/', '-', $datefrom);
+					$datefrom = strtotime($datefrom);
+
+					$dateto = str_replace('/', '-', $dateto);
+					$dateto = strtotime($dateto);
 
 					if ($_FILES && !empty($_FILES['file']['name'])) {
 						if (preg_match('/jpeg|jpg|png|gif|svg/i', $_FILES['file']['type'])) {
@@ -98,7 +105,7 @@ class Home extends MX_Controller {
 							$target_file = FCPATH . $this -> config -> config['upload']['events']['path'] . $fname;
 
 						    if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
-								$arr = array('efaculty' => $faculty, 'elocation' => $location, 'edate' => date('Y-m-d H:i:s', $waktu), 'ecover' => $fname, 'etitle' => $title, 'econtent' => $content, 'estatus' => $status, 'eupdatedby' => __set_modification_log([], 0, 2));
+								$arr = array('efaculty' => $faculty, 'elocation' => $location, 'edatefrom' => date('Y-m-d H:i:s', $datefrom), 'edateto' => date('Y-m-d H:i:s', $dateto), 'ecover' => $fname, 'etitle' => $title, 'econtent' => $content, 'estatus' => $status, 'eupdatedby' => __set_modification_log([], 0, 2));
 								if ($this -> Events_model -> __update_events($id, $arr)) {
 									__set_error_msg(array('info' => 'Event berhasil diubah.'));
 									redirect(site_url('events'));
@@ -119,7 +126,7 @@ class Home extends MX_Controller {
 						}
 					}
 					else {
-						$arr = array('efaculty' => $faculty, 'elocation' => $location, 'edate' => date('Y-m-d H:i:s', $waktu), 'etitle' => $title, 'econtent' => $content, 'estatus' => $status, 'eupdatedby' => __set_modification_log([], 0, 2));
+						$arr = array('efaculty' => $faculty, 'elocation' => $location, 'edatefrom' => date('Y-m-d H:i:s', $datefrom), 'edateto' => date('Y-m-d H:i:s', $dateto), 'etitle' => $title, 'econtent' => $content, 'estatus' => $status, 'eupdatedby' => __set_modification_log([], 0, 2));
 						if ($this -> Events_model -> __update_events($id, $arr)) {
 							__set_error_msg(array('info' => 'Event berhasil diubah.'));
 							redirect(site_url('events'));

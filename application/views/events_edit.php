@@ -36,7 +36,14 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Event Date</label>
-                                            <input type="text" id="datetimepicker" name="waktu" class="form-control input-default " placeholder="Date Time" value="<?php echo date('Y/m/d H:i', strtotime($data[0] -> edate)); ?>">
+                                            <div class="col-lg-6">
+                                            <label>From</label>
+                                            <input type="text" id="datetimepicker" name="datefrom" class="form-control input-default " placeholder="Date Time" value="<?php echo date('Y/m/d H:i', strtotime($data[0] -> edatefrom)); ?>">
+                                            </div>
+                                            <div class="col-lg-6">
+                                            <label>To</label>
+                                            <input type="text" id="datetimepicker2" name="dateto" class="form-control input-default " placeholder="Date Time" value="<?php echo date('Y/m/d H:i', strtotime($data[0] -> edateto)); ?>">
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Location</label>

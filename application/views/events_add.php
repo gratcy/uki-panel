@@ -33,7 +33,14 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Event Date</label>
-                                            <input type="text" id="datetimepicker" name="waktu" class="form-control input-default " placeholder="Date Time">
+                                            <div class="col-lg-6">
+                                            <label>From</label>
+                                            <input type="text" id="datetimepicker" name="datefrom" class="form-control input-default " placeholder="Date Time (From)">
+                                            </div>
+                                            <div class="col-lg-6">
+                                            <label>To</label>
+                                            <input type="text" id="datetimepicker2" name="dateto" class="form-control input-default " placeholder="Date Time (To)">
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <label>Location</label>
