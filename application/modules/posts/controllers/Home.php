@@ -28,7 +28,7 @@ class Home extends MX_Controller {
 				redirect(site_url('posts/add'));
 			}
 			else {
-				$arr = array('pcid' => $category, 'pfaculty' => $faculty, 'pdate' => date('Y-m-d H:i:s'), 'ptitle' => $title, 'pcontent' => $content, 'pstatus' => $status, 'pcreatedby' => __set_modification_log([], 0, 2), 'pupdatedby' => __set_modification_log([], 0, 2));
+				$arr = array('puid' => $this -> permission_lib -> sesresult['uid'], 'pcid' => $category, 'pfaculty' => $faculty, 'pdate' => date('Y-m-d H:i:s'), 'ptitle' => $title, 'pcontent' => $content, 'pstatus' => $status, 'pcreatedby' => __set_modification_log([], 0, 2), 'pupdatedby' => __set_modification_log([], 0, 2));
 				if ($this -> Posts_model -> __insert_posts($arr)) {
 					__set_error_msg(array('info' => 'Post berhasil ditambahkan.'));
 					redirect(site_url('posts'));
