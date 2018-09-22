@@ -42,7 +42,7 @@ class Home extends MX_Controller {
 							$dateto = str_replace('/', '-', $dateto);
 							$dateto = strtotime($dateto);
 
-							$arr = array('efaculty' => $faculty, 'elocation' => $location, 'edatefrom' => date('Y-m-d H:i:s', $datefrom), 'edateto' => date('Y-m-d H:i:s', $dateto), 'ecover' => $fname, 'etitle' => $title, 'econtent' => $content, 'estatus' => $status, 'ecreatedby' => __set_modification_log([], 0, 2), 'eupdatedby' => __set_modification_log([], 0, 2));
+							$arr = array('euid' => $this -> permission_lib -> sesresult['uid'], 'efaculty' => $faculty, 'elocation' => $location, 'edatefrom' => date('Y-m-d H:i:s', $datefrom), 'edateto' => date('Y-m-d H:i:s', $dateto), 'ecover' => $fname, 'etitle' => $title, 'econtent' => $content, 'estatus' => $status, 'ecreatedby' => __set_modification_log([], 0, 2), 'eupdatedby' => __set_modification_log([], 0, 2));
 							if ($this -> Events_model -> __insert_events($arr)) {
 								__set_error_msg(array('info' => 'Event berhasil ditambahkan.'));
 								redirect(site_url('events'));
