@@ -43,8 +43,8 @@
                                             <input type="text" name="title" class="form-control input-default " placeholder="Input Default" value="<?php echo $data[0] -> gtitle; ?>">
                                         </div>
                                         <div class="form-group">
-                                            <label>Content</label>
-                                        <textarea class="textarea_editor form-control" rows="15" placeholder="Enter text ..." name="content" style="height:450px"><?php echo $data[0] -> gcontent; ?></textarea>
+                                            <label>Description</label>
+                                        <textarea class="form-control" placeholder="Galeri Description..." name="content" style="height:100px"><?php echo $data[0] -> gcontent; ?></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>File</label>
