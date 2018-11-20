@@ -115,13 +115,13 @@ function __get_date($str, $type=1) {
 function __get_upload_file($file, $type) {
     $CI =& get_instance();
     if ($type == 1)
-    	return $CI -> config -> config['upload']['host'] . $CI -> config -> config['upload']['media']['path'] . $file;
+    	return $CI -> config -> config['upload']['host'] . str_replace('upload/', '', $CI -> config -> config['upload']['media']['path'] . $file);
 	elseif ($type == 2)
-    	return $CI -> config -> config['upload']['host'] . $CI -> config -> config['upload']['gallery']['path'] . $file;
+    	return $CI -> config -> config['upload']['host'] . str_replace('upload/', '', $CI -> config -> config['upload']['gallery']['path'] . $file);
 	elseif ($type == 3)
-    	return $CI -> config -> config['upload']['host'] . $CI -> config -> config['upload']['slideshow']['path'] . $file;
+    	return $CI -> config -> config['upload']['host'] . str_replace('upload/', '', $CI -> config -> config['upload']['slideshow']['path'] . $file);
 	elseif ($type == 4)
-    	return $CI -> config -> config['upload']['host'] . $CI -> config -> config['upload']['testimonial']['path'] . $file;
+    	return $CI -> config -> config['upload']['host'] . str_replace('upload/', '', $CI -> config -> config['upload']['testimonial']['path'] . $file);
     else
-    	return $CI -> config -> config['upload']['host'] . $CI -> config -> config['upload']['events']['path'] . $file;
+    	return $CI -> config -> config['upload']['host'] . str_replace('upload/', '', $CI -> config -> config['upload']['events']['path'] . $file);
 }
